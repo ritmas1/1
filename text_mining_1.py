@@ -2,12 +2,11 @@ import unicodedata
 from sklearn.datasets import fetch_20newsgroups
 import nltk
 import re
-#import string
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 import urllib
 
-
+#opening file from github
 url="https://raw.githubusercontent.com/ritmas1/1/master/india.txt"
 urllib.request.urlretrieve(url,'india.txt')  
 file=open('india.txt').read()
