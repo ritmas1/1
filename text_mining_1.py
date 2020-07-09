@@ -11,8 +11,8 @@ url="https://raw.githubusercontent.com/ritmas1/1/master/india.txt"
 urllib.request.urlretrieve(url,'india.txt')  
 file=open('india.txt').read()
 
-
-#2.2 Find every occurrence of a number and replace it with the word digit in this document
+# TASK 1
+#1.1 Find every occurrence of a number and replace it with the word digit in this document
 
 file = unicodedata.normalize("NFKD", file)
 digits= re.sub('\\d+','digit', file)
@@ -21,7 +21,7 @@ digits2= re.sub('([r][d])','digit', digits1)
 #check
 print(digits2)
 
-#2.2 Find every occurrence of a number and replace it with the word digit in this document
+#1.2 Find every occurrence of a number and replace it with the word digit in this document
 file = unicodedata.normalize("NFKD", file)
 digits= re.sub('\\d+','digit', file)
 digits1= re.sub('([0-9]+[t][h]|[0-9].[0-9]|[0-9])','digit', digits)
@@ -29,11 +29,11 @@ digits2= re.sub('([r][d])','digit', digits1)
 #check
 print(digits2)
 
-# 2.3 identify punctuation marks 
+# 1.3 identify punctuation marks 
 punctuation= re.findall('[\(\?\]\[\.\!\/\;\:\@\>\)\<\"\|\-\,]',file)
 print(punctuation)
 
-# TASK 3
+# TASK 2
 
 nltk.download('punkt')
 categories = ['sci.med']
@@ -41,7 +41,7 @@ twenty_train = fetch_20newsgroups(subset='train',categories=categories, shuffle=
 sentence = twenty_train['data'][15]
 print(sentence)
 
-# 3.2 normalization
+# 2.1 normalization
 
 sentence1 = re.sub('[\(\?\]\[\.\!\/\;\:\@\>\)\<\"\|]', '', sentence)
 sentence2 = re.sub('[\,\-]', ' ', sentence1)
@@ -55,7 +55,7 @@ sentence3 = sentence3.lower()
 sentence3 = re.sub('[\']', ' ', sentence3)
 
 
-#stop words
+# eliminating stop words
 nltk.download('stopwords')
 stopWords = set(stopwords.words('english'))
 words = word_tokenize(sentence3)
@@ -68,7 +68,7 @@ for x in words:
 normalized=" ".join(no_stopwords)
 
 
-# 3.1 tokenization
+# 2.2 tokenization
 from nltk.tokenize import word_tokenize
 tokens = word_tokenize(sentence)
 print(tokens)
@@ -76,7 +76,7 @@ print(tokens)
 
 tokenized=" ".join(tokens)
 
-#lemmatization (applied on normalized text)
+#2.3 lemmatization (applied on normalized text)
 nltk.download('wordnet')
 
 lemmatized_text=[]
@@ -90,7 +90,7 @@ for word in input_str:
 lemmatized_text=" ".join(lemmatized_text)
 
 
-#3.4 stemming 
+#2.4 stemming 
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
 stemmer= PorterStemmer()
