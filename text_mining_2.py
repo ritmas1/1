@@ -107,8 +107,8 @@ ymax = max(sorted_dic_2.values())
 pl.ylim(0, ymax)
 pl.show()    
 
-#RESULTS: After procedures of normalization, lemmatization and stop-words removal, the graph slope has become more flat 
-#since the most frequnent tokens in the initial book were symbols and stop-words and since they were 
+#RESULTS: After procedures of normalization, lemmatization and stop-words removal, the graph has flattened
+#the most frequnent tokens in the initial book were symbols and stop-words and since they were 
 #eliminated in the pre-processeing, now it is easier to identify the most common words that bring semantic meaning to the text
 
 
